@@ -1,0 +1,88 @@
+//函数绘图语言注释 语法分析阶段 合法输入
+
+--设置原点    
+origin  is (200           ,50           );
+
+
+//rot is          PI/2;//设置旋转角度rot is PI/2;
+
+--设置缩放比例
+    scale is (10,10);
+
+//  / - 设置颜色
+color is red;
+--绘制函数
+foR T 
+from 0 
+to 200 
+stEp 0.01
+draw (T, sin(T));
+
+--复杂语句测试
+--FOR T frOm 0/1 to 2*Pi step 0.001 drAw ((t/(cos(T**t))), exp(T)+E);
+
+origin is (350, 200);	-- 设置原点的偏移量
+rot is pi/6;			-- 设置旋转角度
+color is LLS;
+scale is (2, 1);		-- 设置横、纵坐标比例
+for t from -100 to 100 step 0.1 draw (t, 0);	-- 横坐标
+for t from -100 to 100 step 0.1 draw (0, t);	-- 纵坐标
+scale is (200, 100);	-- 设置横、纵坐标比例
+for t from 0 to 2*pi step pi/400 draw (cos(t),sin(t));
+
+FOR T frOm 0/1 to 2*Pi step 0.1**2 drAw (((exp(Pi*sin(T*(t*cos(T**t)*t)+sin(Pi*e+T*sqrt(T+300))))+E)/(cos(T**t))), exp(T)+E);
+
+-- 绘制经典爱心曲线
+origin is (400, 300);    -- 居中显示（根据窗口大小调整）
+rot is pi;
+color is red;
+scale is (15, 15);       -- 适当缩放，使爱心大小合适
+for t from 0 to 2*pi step 0.002
+draw ( 
+    16 * (sin(t))**3,
+    13 * cos(t) - 5 * cos(2*t) - 2 * cos(3*t) - cos(4*t)
+);
+
+// 蝴蝶
+origin is (700, 300);
+scale is (30, 30);
+color is blue;
+for t from 0 to 24*pi step 0.01 
+draw (
+    (exp(sin(t)) - 2*cos(4*t) + (sin((2*t - pi)/24))**5) * cos(t),
+    (exp(sin(t)) - 2*cos(4*t) + (sin((2*t - pi)/24))**5) * sin(t)
+);
+
+--  星型线
+origin is (100, 100);
+scale is (50, 50);
+rot is 0;
+color is green;
+for t from 0 to 2*pi step 0.001 
+draw (
+    cos(t)**3,
+    sin(t)**3
+);
+
+--玫瑰
+origin is (300, 550);
+scale is (80, 80);
+rot is 0;
+color is lls;
+for t from 0 to 2*pi step 0.001
+draw (
+    sin(4*t) * cos(t),
+    sin(4*t) * sin(t)
+);
+
+-- T
+origin is (100, 280);
+scale is (5, 5);
+rot is 0;
+color is black;
+for t from 0 to 8*pi step 0.001
+draw (
+    t * cos(t) * (1 + 0.2*sin(5*t)),
+    t * sin(t) * (1 + 0.2*cos(5*t))
+);
+
